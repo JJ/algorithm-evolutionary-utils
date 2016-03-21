@@ -159,17 +159,21 @@ sub average {
 
 }
 
-=head2 random_bitstring( $bits )
+=head2 random_bitstring( $bits[, $chromify = 0 ] )
 
-Returns a random bitstring with the stated number of bits. Useful for testing,mainly
+Returns a random bitstring with the stated number of bits. Useful for
+testing, mainly. Returns a "chromosome-like" object if $chromify is 1,
+mainly putting it into a hashref with the C<_str> key.
 
 =cut
 
 sub random_bitstring {
   my $bits = shift || croak "No bits!";
+  my $chromify = shift || 1;
   my $generator = new String::Random;
   my $regex = "\[01\]{$bits}";
-  return $generator->randregex($regex);
+  my $this_string = $generator->randregex($regex);
+  return $chromify?{_str => $this_string}:$this_string;
 }
 
 =head2 random_number_array( $dimensions [, $min = -1] [, $range = 2] )

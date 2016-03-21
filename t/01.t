@@ -11,16 +11,15 @@ use Algorithm::Evolutionary::Utils
      vector_compare random_bitstring random_number_array);
 
 my @pop;
-my $number_of_bits = 20;
-my $population_size = 20;
+my $number_of_bits = 32;
+my $population_size = 16;
 my $last_bitstring = "0"x$number_of_bits;
 for ( 0..$population_size ) {
-  my $random_bitstring = random_bitstring( $number_of_bits );
-  isnt( $random_bitstring, $last_bitstring, "New random bitstring" );
-  $last_bitstring = $random_bitstring;
+  my $indi = random_bitstring( $number_of_bits, 1 );
+  isnt( $indi->{'_str'}, $last_bitstring, "New random bitstring" );
+  $last_bitstring = $indi->{'_str'};
   #Creates random individual
-  my $indi = { _str =>  $random_bitstring,
-	       _fitness => rand };
+  $indi->{ _fitness} = rand ;
   
   push( @pop, $indi );
 }
@@ -39,14 +38,14 @@ for ( 0..$population_size ) {
 
 ok( entropy( \@pop ) > 0, "Entropy" );
 my @not_a_real_pop = @pop;
-push @not_a_real_pop, { _str => '1111'};
+push @not_a_real_pop, { _str => random_bitstring($number_of_bits)};
 ok( entropy( \@not_a_real_pop ) > 0, "Entropy 2" );
 ok( genotypic_entropy( \@pop ) > 0, "Genotypic entropy");
 ok( hamming( $pop[0]->{'_str'}, $pop[1]->{'_str'}) > 0, "Hamming" );
 ok( length(consensus( \@pop )) > 1, "Consensus" );
 ok( length(consensus( \@pop, 1 )) > 1, "Rough consensus" );
 ok( average( \@pop ) > 0, "Average");
-is( scalar( decode_string( $pop[0]->{'_str'}, 10, -1, 1 ) ), 2, "Decoding" );
+is( scalar( decode_string( $pop[0]->{'_str'}, 10, -1, 1 ) ), 1+ int($number_of_bits/10), "Decoding" );
 my @vector_1 = qw( 1 1 1);
 my @vector_2 = qw( 0 0 0);
 is( vector_compare( \@vector_1, \@vector_2 ), 1, "Comparison 0" );
