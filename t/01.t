@@ -13,6 +13,7 @@ use Algorithm::Evolutionary::Utils
 
 # Check exceptions
 throws_ok { random_bitstring() } qr/No bits/, "No bits caught";
+throws_ok { random_number_array() } qr/Null/, "Null dimension caught";
 my @pop;
 my $number_of_bits = 32;
 my $population_size = 16;

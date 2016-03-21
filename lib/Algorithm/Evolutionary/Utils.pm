@@ -183,7 +183,7 @@ Returns a random number array with the stated length. Useful for testing, mainly
 =cut
 
 sub random_number_array {
-  my $dimensions = shift || croak "No bits!";
+  my $dimensions = shift || croak "Null dimension!";
   my $min = shift || -1;
   my $range = shift || 2;
 
