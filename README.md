@@ -1,10 +1,11 @@
-Algorithm::Evolutionary
+Algorithm::Evolutionary::Utils
 ===================================
 
 This is the repo for development of
-[`Algorithm::Evolutionary`](http://search.cpan.org/dist/Algorithm-Evolutionary/),
+[`Algorithm::Evolutionary::Utils`](http://search.cpan.org/dist/Algorithm-Evolutionary-Utils/),
 a CPAN module for creating evolutionary algorithms using Perl. 
 
+It is mainly intended to be used as a base for other Perl modules that deal with evolutionary algorithms, this way it is all kept in a single place.
 
 ##INSTALLATION
 
@@ -23,41 +24,6 @@ Issue first
 
 if the upstream dependencies are not installed (which they are wont to
 do). Check also the DEPENDENCIES section below for non-perl dependencies.
-
-##WARNING
-
-Since evolutionary algorithms are stochastic optimization algorithms,
-some tests, specially in the `general.t` test, might fail; running
-them again might yield a different result. If your installation (from
-CPAN, CPANPLUS or cpanminus) fails for this reason, run a force install, or try
-to `make install` disregarding the tests.
-
-##DEPENDENCIES
-
-Modules listed in [`Makefile.PL`](Makefile.PL) plus `libgd-dev`. Install it in ubuntu with
-
-	sudo apt-get install libgd-dev
-
-or
-
-    sudo apt-get install libgd2-xpm-dev
-
-if that fails. Type equivalent incantations for other distros. You're
-good to go if you have the `GD` module already installed, though.
-
-##DEMO
-
-Install demo dependencies with
-
-	cpanm --installdeps .
-	
-You can run the demos included in the [`scripts`](scripts/) directory,
-for instance
-
-	./rectangle-coverage.pl
-
-for a beautiful and slightly annoying test with a certain
-Mondrianesque aspect.
 
 
 ##COPYRIGHT AND LICENCE
