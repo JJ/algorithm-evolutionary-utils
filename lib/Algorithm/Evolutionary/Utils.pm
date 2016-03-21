@@ -56,7 +56,7 @@ Computes the entropy using the well known Shannon's formula: L<http://en.wikiped
 sub entropy {
   my $population = shift;
   my %frequencies;
-  map( (defined $_->Fitness())?$frequencies{$_->Fitness()}++:1, @$population );
+  map( (defined $_->{'_fitness'})?$frequencies{$_->{'_fitness'}}++:1, @$population );
   my $entropy = 0;
   my $gente = scalar(@$population); # Population size
   for my $f ( keys %frequencies ) {
@@ -112,10 +112,10 @@ sub consensus {
   my $rough = shift;
   my @frequencies;
   for ( @$population ) {
-      for ( my $i = 0; $i < $_->size(); $i ++ ) {
+      for ( my $i = 0; $i < length($_->{'_str'}); $i ++ ) {
 	  if ( !$frequencies[$i] ) {
 	      $frequencies[$i]={ 0 => 0,
-			     1 => 0};
+				 1 => 0};
 	  }
 	  $frequencies[$i]->{substr($_->{'_str'}, $i, 1)}++;
       }
@@ -153,7 +153,7 @@ Computes an average of population fitness
 sub average {
   my $population = shift;
   my @frequencies;
-  my @fitnesses = map( $_->Fitness(), @$population );
+  my @fitnesses = map( $_->{'_fitness'}, @$population );
   return mean( @fitnesses );
 
 }

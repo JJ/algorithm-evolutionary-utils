@@ -19,8 +19,9 @@ for ( 0..$population_size ) {
   isnt( $random_bitstring, $last_bitstring, "New random bitstring" );
   $last_bitstring = $random_bitstring;
   #Creates random individual
-  my $indi = Algorithm::Evolutionary::Individual::BitString->from_string( $random_bitstring ) ; 
-  $indi->Fitness( rand );
+  my $indi = { _str =>  $random_bitstring,
+	       _fitness => rand };
+  
   push( @pop, $indi );
 }
 
@@ -39,7 +40,7 @@ for ( 0..$population_size ) {
 ok( entropy( \@pop ) > 0, "Entropy" );
 ok( length(consensus( \@pop )) > 1, "Consensus" );
 ok( average( \@pop ) > 0, "Average");
-is( scalar( decode_string( $pop[0], 10, -1, 1 ) ), 2, "Decoding" );
+is( scalar( decode_string( $pop[0]->{'_str'}, 10, -1, 1 ) ), 2, "Decoding" );
 my @vector_1 = qw( 1 1 1);
 my @vector_2 = qw( 0 0 0);
 is( vector_compare( \@vector_1, \@vector_2 ), 1, "Comparison 0" );
