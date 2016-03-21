@@ -38,6 +38,9 @@ for ( 0..$population_size ) {
 #test utils
 
 ok( entropy( \@pop ) > 0, "Entropy" );
+my @not_a_real_pop = @pop;
+push @not_a_real_pop, { _str => '1111'};
+ok( entropy( \@not_a_real_pop ) > 0, "Entropy 2" );
 ok( genotypic_entropy( \@pop ) > 0, "Genotypic entropy");
 ok( length(consensus( \@pop )) > 1, "Consensus" );
 ok( average( \@pop ) > 0, "Average");
