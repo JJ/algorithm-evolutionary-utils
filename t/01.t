@@ -1,6 +1,7 @@
 #-*-cperl-*-
 
 use Test::More;
+use Test::Exception;
 use warnings;
 use strict;
 
@@ -10,6 +11,8 @@ use Algorithm::Evolutionary::Utils
   qw(entropy genotypic_entropy hamming consensus average decode_string 
      vector_compare random_bitstring random_number_array);
 
+# Check exceptions
+throws_ok { random_bitstring() } qr/No bits/, "No bits caught";
 my @pop;
 my $number_of_bits = 32;
 my $population_size = 16;

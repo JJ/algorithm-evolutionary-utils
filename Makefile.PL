@@ -27,6 +27,7 @@ WriteMakefile(
     PREREQ_PM => { 
 		  'Statistics::Basic' => 1.6,
 		  'String::Random' => 0,
+		  'Test::Exception' => 0,
 		  'Test::More' => 0,
 		  'Test::Pod' => 0,
 		  'version'    => 0,
