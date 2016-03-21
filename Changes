@@ -1,5 +1,7 @@
 2016-03-21  JJ Merelo  <jmerelo@flash>
 
+	* lib/Algorithm/Evolutionary/Utils.pm: bumping up version to 1.0.1 with generation of seudo-chromosomes
+	
 	* README.md (Algorithm): 3 years after, Utils.pm is spun off to its new location.
 
 2013-01-06  Juan J. Merelo Guervós  <jjmerelo@gmail.com>
