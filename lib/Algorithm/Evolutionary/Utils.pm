@@ -122,14 +122,15 @@ sub consensus {
   }
   my $consensus;
   for my $f ( @frequencies ) {
-    if ( !$rough ) {
+    if ( $rough ) {
       if ( $f->{'0'} > $f->{'1'} ) {
 	$consensus.='0';
       } else {
 	$consensus.='1';
       }
     } else {
-      my $difference = abs( $f->{'0'} - $f->{'1'} );
+      my $total =  $f->{'0'} +  $f->{'1'};
+      my $difference = (abs( $f->{'0'} - $f->{'1'} ))/$total;
       if ( $difference < 0.4 ) {
 	$consensus .= '-';
       } else {
