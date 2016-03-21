@@ -190,19 +190,6 @@ sub random_number_array {
   return @array;
 }
 
-=head2 parse_xml( $string ) 
-
-Parses the string and returns an XML tree
-
-=cut
-
-sub parse_xml {
-  my $string = shift || croak "No string to parse!\n";
-  my $p=new XML::Parser(Style=>'EasyTree');
-  $XML::Parser::EasyTree::Noempty=1;
-  my $xml_dom = $p->parse($string) || croak "Problems parsing $string: $!\n";
-  return $xml_dom;
-}
 
 =head2 decode_string( $chromosome, $gene_size, $min, $range )
 
