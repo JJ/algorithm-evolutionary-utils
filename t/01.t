@@ -42,6 +42,7 @@ my @not_a_real_pop = @pop;
 push @not_a_real_pop, { _str => '1111'};
 ok( entropy( \@not_a_real_pop ) > 0, "Entropy 2" );
 ok( genotypic_entropy( \@pop ) > 0, "Genotypic entropy");
+ok( hamming( $pop[0], $pop[1]) > 0, "Hamming" );
 ok( length(consensus( \@pop )) > 1, "Consensus" );
 ok( average( \@pop ) > 0, "Average");
 is( scalar( decode_string( $pop[0]->{'_str'}, 10, -1, 1 ) ), 2, "Decoding" );
