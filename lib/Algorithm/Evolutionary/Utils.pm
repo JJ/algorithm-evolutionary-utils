@@ -220,8 +220,9 @@ sub decode_string {
 
 Compares vectors, returns 1 if 1 dominates 2, -1 if it's the other way
 round, and 0 if neither dominates the other. Both vectors are supposed
-to be numeric. Returns C<undef> if neither is bigger, and they are not
-equal. Fails if the length is not the same. 
+to be numeric. Returns C<0> if neither is bigger, and they are not
+equal. Fails if the length is not the same. None of the combinations
+above, returns C<undef>.
 
 =cut
 
@@ -245,6 +246,7 @@ sub vector_compare {
   if ( defined $comparisons{0} && $comparisons{0} == $length ) {
     return 0;
   }
+  return undef;
 }
 
 =head1 Copyright

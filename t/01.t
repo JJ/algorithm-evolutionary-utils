@@ -14,6 +14,7 @@ use Algorithm::Evolutionary::Utils
 # Check exceptions
 throws_ok { random_bitstring() } qr/No bits/, "No bits caught";
 throws_ok { random_number_array() } qr/Null/, "Null dimension caught";
+throws_ok { vector_compare( [1,2,3],[2,3]) } qr/Different/, "Different length caught";
 my @pop;
 my $number_of_bits = 32;
 my $population_size = 16;
@@ -60,6 +61,8 @@ is( vector_compare( \@vector_1, \@vector_2 ), 0 , "Comparing equal" );
 @vector_2 = qw( 2 2 1);
 is( vector_compare( \@vector_1, \@vector_2 ), -1, "Compare less" );
 
+@vector_2 = qw(0 2 0);
+is( vector_compare( \@vector_1, \@vector_2 ), undef, "Can't compare" );
 done_testing;
 
 =head1 Copyright
