@@ -9,40 +9,28 @@ if ($ExtUtils::MakeMaker::VERSION > 6.64) {
         resources => {
             repository => {
                 type => 'git',
-                url  => 'https://github.com/JJ/Algorithm-Evolutionary.git',
-                web  => 'https://github.com/JJ/Algorithm-Evolutionary',
+                url  => 'https://github.com/JJ/algorithm-evolutionary-utils.git',
+                web  => 'https://github.com/JJ/algorithm-evolutionary',
             },
         },
     };
 }
 
 WriteMakefile(
-    NAME                => 'Algorithm::Evolutionary',
+    NAME                => 'Algorithm::Evolutionary::Utils',
     AUTHOR              => 'JJ Merelo <jj /at/ merelo.net>',
-    VERSION_FROM        => 'lib/Algorithm/Evolutionary.pm',
-    ABSTRACT_FROM       => 'lib/Algorithm/Evolutionary.pm',
+    VERSION_FROM        => 'lib/Algorithm/Evolutionary/Utils.pm',
+    ABSTRACT_FROM       => 'lib/Algorithm/Evolutionary/Utils.pm',
     EXE_FILES => \@scripts,
     LICENSE => 'gpl',
     PL_FILES            => {},
-    PREREQ_PM => {'Algorithm::Permute' => 0.01,
-		  'Bit::Vector' => 0,
-		  'Clone' => 0.31,
-		  constant => 0,
-		  'GD' => 2.17,   
-		  'Math::Random' => 0.63,
-		  'Memoize' => 0, 
-		  'Object::Array' => 0,
-		  'Pod::Escapes' => '0', #Dependence from Test::Pod, but produces failure in 1 platform
-		  'Sort::Key' => 0,		  
+    PREREQ_PM => { 
 		  'Statistics::Basic' => 1.6,
 		  'String::Random' => 0,
 		  'Test::More' => 0,
 		  'Test::Pod' => 0,
-		  'Time::HiRes' => 0,
-		  'Tree::DAG_Node' => 1.04,
 		  'version'    => 0,
 		  'XML::Parser' => 2.40,
-		  'XML::Parser::Style::EasyTree' => 0,
 		  YAML => 0
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz' },

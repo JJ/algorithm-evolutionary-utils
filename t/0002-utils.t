@@ -6,7 +6,6 @@ use strict;
 
 use lib qw( lib ../lib ../../lib  ); #Just in case we are testing it in-place
 
-use Algorithm::Evolutionary::Individual::BitString;
 use Algorithm::Evolutionary::Utils 
   qw(entropy consensus average decode_string 
      vector_compare random_bitstring random_number_array);
@@ -40,7 +39,7 @@ for ( 0..$population_size ) {
 ok( entropy( \@pop ) > 0, "Entropy" );
 ok( length(consensus( \@pop )) > 1, "Consensus" );
 ok( average( \@pop ) > 0, "Average");
-is( scalar( decode_string( $pop[0]->Chrom(), 10, -1, 1 ) ), 2, "Decoding" );
+is( scalar( decode_string( $pop[0], 10, -1, 1 ) ), 2, "Decoding" );
 my @vector_1 = qw( 1 1 1);
 my @vector_2 = qw( 0 0 0);
 is( vector_compare( \@vector_1, \@vector_2 ), 1, "Comparison 0" );

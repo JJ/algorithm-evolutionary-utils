@@ -3,13 +3,15 @@ use warnings;
 
 use lib qw( ../../../lib );
 
+=encoding utf8
+
 =head1 NAME
 
-Algorithm::Evolutionary::Utils - Container module with a hodgepodge of functions
-                 
+Algorithm::Evolutionary::Utils - Container module with a hodgepodge of functions.
+
 =head1 SYNOPSIS
   
-  use Algorithm::Evolutionary::Utils qw(entropy genotypic_entropy hamming consensus average random_bitstring random_number_array decode_string vector_compare );
+   use Algorithm::Evolutionary::Utils qw(entropy genotypic_entropy hamming consensus average random_bitstring random_number_array decode_string vector_compare );
 
   my $this_entropy = entropy( $population );
 
@@ -33,7 +35,7 @@ package Algorithm::Evolutionary::Utils;
 use Exporter;
 our @ISA = qw(Exporter);
 
-our $VERSION =   sprintf "3.4";
+our $VERSION =  "1.0";
 
 our @EXPORT_OK = qw( entropy genotypic_entropy consensus hamming 
 		     random_bitstring random_number_array average 
