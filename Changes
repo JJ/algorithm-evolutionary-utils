@@ -1,6 +1,7 @@
 2016-03-22  JJ Merelo  <jmerelo@flash>
 
 	* lib/Algorithm/Evolutionary/Utils.pm (consensus): Fixes the consensus string and changes threshold. 
+	Covering also default values.
 
 2016-03-21  JJ Merelo  <jmerelo@flash>
 

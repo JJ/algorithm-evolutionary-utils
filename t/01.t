@@ -38,10 +38,11 @@ for ( 0..$population_size ) {
   isnt( $random_number_array[0], $last_number_array[0], "New random number array" );
   @last_number_array = @random_number_array;
 }
+is( (random_number_array( 4 ))[0] > -1, "Defaults" );
 
 #test utils
 
-ok( entropy( \@pop ) > 0, "Entropy" );
+is( entropy( \@pop ) > 0, 1, "Entropy" );
 my @not_a_real_pop = @pop;
 push @not_a_real_pop, { _str => random_bitstring($number_of_bits)};
 ok( entropy( \@not_a_real_pop ) > 0, "Entropy 2" );
