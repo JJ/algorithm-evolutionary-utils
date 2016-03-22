@@ -2,6 +2,7 @@
 
 	* lib/Algorithm/Evolutionary/Utils.pm (consensus): Fixes the consensus string and changes threshold. 
 	Covering also default values.
+	Improving coverage of conditionals and testing new version.
 
 2016-03-21  JJ Merelo  <jmerelo@flash>
 
