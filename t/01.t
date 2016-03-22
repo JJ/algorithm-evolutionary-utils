@@ -38,7 +38,7 @@ for ( 0..$population_size ) {
   isnt( $random_number_array[0], $last_number_array[0], "New random number array" );
   @last_number_array = @random_number_array;
 }
-is( (random_number_array( 4 ))[0] > -1, "Defaults" );
+is( (random_number_array( 4 ))[0] > -1, 1, "Defaults" );
 
 #test utils
 
