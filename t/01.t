@@ -19,6 +19,7 @@ my @pop;
 my $number_of_bits = 32;
 my $population_size = 16;
 my $last_bitstring = "0"x$number_of_bits;
+is( substr(random_bitstring($number_of_bits),0,1) =~ /[01]/, 1, "String" ); 
 for ( 0..$population_size ) {
   my $indi = random_bitstring( $number_of_bits, 1 );
   isnt( $indi->{'_str'}, $last_bitstring, "New random bitstring" );

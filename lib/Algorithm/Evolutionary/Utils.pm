@@ -35,7 +35,7 @@ package Algorithm::Evolutionary::Utils;
 use Exporter;
 our @ISA = qw(Exporter);
 
-use version; our $VERSION =  qv("3.402");
+use version; our $VERSION =  qv("3.403");
 
 our @EXPORT_OK = qw( entropy genotypic_entropy consensus hamming 
 		     random_bitstring random_number_array average 
@@ -169,7 +169,7 @@ mainly putting it into a hashref with the C<_str> key.
 
 sub random_bitstring {
   my $bits = shift || croak "No bits!";
-  my $chromify = shift || 1;
+  my $chromify = shift || 0;
   my $generator = new String::Random;
   my $regex = "\[01\]{$bits}";
   my $this_string = $generator->randregex($regex);
