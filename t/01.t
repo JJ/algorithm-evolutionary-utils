@@ -64,6 +64,10 @@ is( vector_compare( \@vector_1, \@vector_2 ), -1, "Compare less" );
 
 @vector_2 = qw(0 2 0);
 is( vector_compare( \@vector_1, \@vector_2 ), undef, "Can't compare" );
+
+@vector_2 = qw(1 2 0);
+is( vector_compare( \@vector_1, \@vector_2 ), undef, "Can't compare" );
+
 done_testing;
 
 =head1 Copyright
