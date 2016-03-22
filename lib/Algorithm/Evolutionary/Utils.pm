@@ -7,7 +7,7 @@ use lib qw( ../../../lib );
 
 =head1 NAME
 
-Algorithm::Evolutionary::Utils - Container module with a hodgepodge of functions.
+Algorithm::Evolutionary::Utils - Collection of functions used in all kind of evolutionary algorithms..
 
 =head1 SYNOPSIS
   
@@ -35,7 +35,7 @@ package Algorithm::Evolutionary::Utils;
 use Exporter;
 our @ISA = qw(Exporter);
 
-use version; our $VERSION =  qv("3.4.2");
+use version; our $VERSION =  qv("3.401");
 
 our @EXPORT_OK = qw( entropy genotypic_entropy consensus hamming 
 		     random_bitstring random_number_array average 
@@ -248,6 +248,10 @@ sub vector_compare {
   }
   return undef;
 }
+
+=head1 SEE ALSO
+
+This is a spin off from L<Algorithm::Evolutionary> so it's worth the while to check it out. And the spinning was due to finding I needed to include it in examples for the much simpler L<Algorithm::Evolutionary::Simple>. 
 
 =head1 Copyright
   
