@@ -1,3 +1,7 @@
+2016-03-22  JJ Merelo  <jmerelo@flash>
+
+	* lib/Algorithm/Evolutionary/Utils.pm (consensus): Fixes the consensus string and changes threshold. 
+
 2016-03-21  JJ Merelo  <jmerelo@flash>
 
 	* lib/Algorithm/Evolutionary/Utils.pm: bumping up version to 1.0.1 with generation of seudo-chromosomes

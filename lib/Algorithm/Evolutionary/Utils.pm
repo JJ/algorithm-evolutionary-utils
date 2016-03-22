@@ -35,7 +35,7 @@ package Algorithm::Evolutionary::Utils;
 use Exporter;
 our @ISA = qw(Exporter);
 
-our $VERSION =  "1.0.1";
+our $VERSION =  "v3.4.1";
 
 our @EXPORT_OK = qw( entropy genotypic_entropy consensus hamming 
 		     random_bitstring random_number_array average 
@@ -90,7 +90,7 @@ sub genotypic_entropy {
 
 =head2 hamming( $string_a, $string_b )
 
-Computes the number of positions that are different among two strings, the well known Hamming distance. 
+Computes the number of bit positions that are different among two strings, the well known Hamming distance.
 
 =cut
 
@@ -101,9 +101,9 @@ sub hamming {
 
 =head2 consensus( $population, $rough = 0 )
 
-Consensus sequence representing the majoritary value for each bit;
+Consensus sequence representing the majority value for each bit;
 returns the consensus binary string. If "rough", then the bit is set only if the 
-difference is bigger than 0.4 (60/40 proportion).
+difference is bigger than 0.2 (60/40 proportion). Otherwise, it is set to C<->
 
 =cut
 
@@ -122,7 +122,7 @@ sub consensus {
   }
   my $consensus;
   for my $f ( @frequencies ) {
-    if ( $rough ) {
+    if ( !$rough ) {
       if ( $f->{'0'} > $f->{'1'} ) {
 	$consensus.='0';
       } else {
@@ -131,7 +131,7 @@ sub consensus {
     } else {
       my $total =  $f->{'0'} +  $f->{'1'};
       my $difference = (abs( $f->{'0'} - $f->{'1'} ))/$total;
-      if ( $difference < 0.4 ) {
+      if ( $difference < 0.2 ) {
 	$consensus .= '-';
       } else {
 	if ( $f->{'0'} > $f->{'1'} ) {
