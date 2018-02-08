@@ -8,7 +8,7 @@ use strict;
 use lib qw( lib ../lib ../../lib  ); #Just in case we are testing it in-place
 
 use Algorithm::Evolutionary::Utils 
-  qw(entropy genotypic_entropy hamming consensus average decode_string 
+  qw(genotypic_entropy hamming consensus decode_string 
      vector_compare random_bitstring random_number_array);
 
 # Check exceptions

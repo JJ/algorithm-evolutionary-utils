@@ -7,7 +7,7 @@ use strict;
 use lib qw( lib ../lib ../../lib  ); #Just in case we are testing it in-place
 
 use Algorithm::Evolutionary::Utils 
-  qw(consensus average decode_string 
+  qw(consensus decode_string 
      vector_compare random_bitstring random_number_array);
 
 my @pop;
