@@ -3,7 +3,6 @@ branches:
     - gh-pages
 language: perl
 perl:
-  - latest
   - "5.16"
   - "5.18"
   - "5.20"

@@ -39,7 +39,7 @@ use version; our $VERSION =  qv("3.403");
 
 our @EXPORT_OK = qw( entropy genotypic_entropy consensus hamming 
 		     random_bitstring random_number_array average 
-		     parse_xml decode_string vector_compare);
+		     decode_string vector_compare);
 
 use Carp;
 use String::Random;
@@ -222,7 +222,7 @@ Compares vectors, returns 1 if 1 dominates 2, -1 if it's the other way
 round, and 0 if neither dominates the other. Both vectors are supposed
 to be numeric. Returns C<0> if neither is bigger, and they are not
 equal. Fails if the length is not the same. None of the combinations
-above, returns C<undef>.
+above returns C<undef>.
 
 =cut
 
