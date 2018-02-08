@@ -1,6 +1,8 @@
 Algorithm::Evolutionary::Utils
 ===================================
 
+[![Build Status](https://travis-ci.org/JJ/algorithm-evolutionary-utils.svg?branch=master)](https://travis-ci.org/JJ/algorithm-evolutionary-utils)
+
 This is the repo for development of
 [`Algorithm::Evolutionary::Utils`](http://search.cpan.org/dist/Algorithm-Evolutionary-Utils/),
 a CPAN module for creating evolutionary algorithms using Perl. 
