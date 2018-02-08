@@ -35,7 +35,7 @@ package Algorithm::Evolutionary::Utils;
 use Exporter;
 our @ISA = qw(Exporter);
 
-use version; our $VERSION =  qv("3.403");
+use version; our $VERSION =  qv("4.00.00");
 
 our @EXPORT_OK = qw( genotypic_entropy consensus hamming 
 		     random_bitstring random_number_array 

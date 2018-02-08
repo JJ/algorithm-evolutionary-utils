@@ -42,16 +42,12 @@ for ( 0..$population_size ) {
 is( (random_number_array( 4 ))[0] > -1, 1, "Defaults" );
 
 #test utils
-
-is( entropy( \@pop ) > 0, 1, "Entropy" );
 my @not_a_real_pop = @pop;
 push @not_a_real_pop, { _str => random_bitstring($number_of_bits)};
-ok( entropy( \@not_a_real_pop ) > 0, "Entropy 2" );
 ok( genotypic_entropy( \@pop ) > 0, "Genotypic entropy");
 ok( hamming( $pop[0]->{'_str'}, $pop[1]->{'_str'}) > 0, "Hamming" );
 ok( length(consensus( \@pop )) > 1, "Consensus" );
 ok( length(consensus( \@pop, 1 )) > 1, "Rough consensus" );
-ok( average( \@pop ) > 0, "Average");
 is( scalar( decode_string( $pop[0]->{'_str'}, 10, -1, 1 ) ), 1+ int($number_of_bits/10), "Decoding" );
 my @vector_1 = qw( 1 1 1);
 my @vector_2 = qw( 0 0 0);
