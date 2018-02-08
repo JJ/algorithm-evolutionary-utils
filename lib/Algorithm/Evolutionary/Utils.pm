@@ -38,7 +38,7 @@ our @ISA = qw(Exporter);
 use version; our $VERSION =  qv("3.403");
 
 our @EXPORT_OK = qw( genotypic_entropy consensus hamming 
-		     random_bitstring random_number_array average 
+		     random_bitstring random_number_array 
 		     decode_string vector_compare);
 
 use Carp;
@@ -124,20 +124,6 @@ sub consensus {
     }
   }
   return $consensus;
-}
-
-=head2 average( $population )
-
-Computes an average of population fitness
-
-=cut
-
-sub average {
-  my $population = shift;
-  my @frequencies;
-  my @fitnesses = map( $_->{'_fitness'}, @$population );
-  return mean( @fitnesses );
-
 }
 
 =head2 random_bitstring( $bits[, $chromify = 0 ] )

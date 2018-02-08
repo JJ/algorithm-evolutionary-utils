@@ -34,7 +34,6 @@ for ( 0..$population_size ) {
 #test utils
 
 ok( length(consensus( \@pop )) > 1, "Consensus" );
-#ok( average( \@pop ) > 0, "Average");
 is( scalar( decode_string( $pop[0], 10, -1, 1 ) ), 2, "Decoding" );
 my @vector_1 = qw( 1 1 1);
 my @vector_2 = qw( 0 0 0);
