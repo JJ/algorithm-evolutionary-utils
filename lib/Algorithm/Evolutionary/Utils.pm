@@ -112,13 +112,14 @@ sub consensus {
   my $rough = shift;
   my @frequencies;
   for ( @$population ) {
-      for ( my $i = 0; $i < length($_->{'_str'}); $i ++ ) {
-	  if ( !$frequencies[$i] ) {
-	      $frequencies[$i]={ 0 => 0,
-				 1 => 0};
-	  }
-	  $frequencies[$i]->{substr($_->{'_str'}, $i, 1)}++;
+    my $str = ref( $_ )?$_->{'_str'}:$_;
+    for ( my $i = 0; $i < length($str); $i ++ ) {
+      if ( !$frequencies[$i] ) {
+	$frequencies[$i]={ 0 => 0,
+			   1 => 0};
       }
+      $frequencies[$i]->{ substr($str, $i, 1)}++;
+    }
   }
   my $consensus;
   for my $f ( @frequencies ) {
