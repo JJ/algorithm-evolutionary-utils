@@ -7,16 +7,27 @@ use lib qw( ../../../lib );
 
 =head1 NAME
 
-Algorithm::Evolutionary::Utils - Collection of functions used in all kind of evolutionary algorithms..
+Algorithm::Evolutionary::Utils - Collection of functions used in all kind of evolutionary algorithms.
 
 =head1 SYNOPSIS
   
-   use Algorithm::Evolutionary::Utils qw(entropy genotypic_entropy hamming consensus average random_bitstring random_number_array decode_string vector_compare );
+  use Algorithm::Evolutionary::Utils qw( genotypic_entropy hamming consensus 
+     random_bitstring random_number_array decode_string vector_compare );
 
-  my $this_entropy = entropy( $population );
+  my @pop;
+  my $number_of_bits = 20;
+  my $population_size = 20;
+  my $last_bitstring = "0"x$number_of_bits;
+  for ( 0..$population_size ) {
+    my $random_bitstring = random_bitstring( $number_of_bits );
+    isnt( $random_bitstring, $last_bitstring, "New random bitstring" );
+    $last_bitstring = $random_bitstring;
+    push( @pop, $random_bitstring );
+  }
+  my $this_entropy = genotypic_entropy( \@population );
 
   #Computes consensus sequence (for binary chromosomes
-  my $this_consensus = consensus( $population); 
+  my $this_consensus = consensus( \@population ); 
 
 =head1 DESCRIPTION
 
