@@ -7,7 +7,7 @@ use strict;
 use lib qw( lib ../lib ../../lib  ); #Just in case we are testing it in-place
 
 use Algorithm::Evolutionary::Utils 
-  qw(entropy consensus average decode_string 
+  qw(consensus average decode_string 
      vector_compare random_bitstring random_number_array);
 
 my @pop;
@@ -33,7 +33,6 @@ for ( 0..$population_size ) {
 
 #test utils
 
-#ok( entropy( \@pop ) > 0, "Entropy" ); # Needs Bitstring for testing
 ok( length(consensus( \@pop )) > 1, "Consensus" );
 #ok( average( \@pop ) > 0, "Average");
 is( scalar( decode_string( $pop[0], 10, -1, 1 ) ), 2, "Decoding" );

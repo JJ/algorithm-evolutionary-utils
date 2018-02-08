@@ -37,7 +37,7 @@ our @ISA = qw(Exporter);
 
 use version; our $VERSION =  qv("3.403");
 
-our @EXPORT_OK = qw( entropy genotypic_entropy consensus hamming 
+our @EXPORT_OK = qw( genotypic_entropy consensus hamming 
 		     random_bitstring random_number_array average 
 		     decode_string vector_compare);
 
@@ -45,26 +45,6 @@ use Carp;
 use String::Random;
 use XML::Parser;
 use Statistics::Basic qw(mean);
-
-=head2 entropy( $population)
-
-Computes the entropy using the well known Shannon's formula: L<http://en.wikipedia.org/wiki/Information_entropy>
-'to avoid botching highlighting
-
-=cut
-
-sub entropy {
-  my $population = shift;
-  my %frequencies;
-  map( (defined $_->{'_fitness'})?$frequencies{$_->{'_fitness'}}++:1, @$population );
-  my $entropy = 0;
-  my $gente = scalar(@$population); # Population size
-  for my $f ( keys %frequencies ) {
-    my $this_freq = $frequencies{$f}/$gente;
-    $entropy -= $this_freq*log( $this_freq );
-  }
-  return $entropy;
-}
 
 =head2 genotypic_entropy( $population)
 
